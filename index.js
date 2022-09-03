@@ -16,7 +16,7 @@ app.use(express.json())
 // app.use(viewCount)
 // app.use(limiter)
 
-app.use('/user/all', userRoutes)
+app.use('https://fathomless-falls-43456.herokuapp.com/user/all', userRoutes)
 
 
 dbConncet()
