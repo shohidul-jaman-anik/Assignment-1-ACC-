@@ -1,6 +1,6 @@
-const users = [
+let users = [
     {
-        "id": "1",
+        "id": 1,
         "photoUrl": "http://placehold.it/32x32",
         "age": 31,
         "name": "Rachelle Alford",
@@ -10,7 +10,7 @@ const users = [
         "address": "277 Beard Street, Fairview, Indiana, 8616"
     },
     {
-        "id": "2",
+        "id": 2,
         "photoUrl": "http://placehold.it/32x32",
         "age": 29,
         "name": "Alba Sargent",
@@ -20,7 +20,7 @@ const users = [
         "address": "317 Lewis Avenue, Harrison, Massachusetts, 9841"
     },
     {
-        "id": "3",
+        "id": 3,
         "photoUrl": "http://placehold.it/32x32",
         "age": 25,
         "name": "Pope Bartlett",
@@ -30,7 +30,7 @@ const users = [
         "address": "465 Sutton Street, Nutrioso, Virgin Islands, 7224"
     },
     {
-        "id": "4",
+        "id": 4,
         "photoUrl": "http://placehold.it/32x32",
         "age": 40,
         "name": "Charity Donovan",
@@ -40,7 +40,7 @@ const users = [
         "address": "333 Wolf Place, Laurelton, Pennsylvania, 6183"
     },
     {
-        "id": "5",
+        "id": 5,
         "photoUrl": "http://placehold.it/32x32",
         "age": 30,
         "name": "Andrews Mclaughlin",
@@ -50,7 +50,7 @@ const users = [
         "address": "860 Independence Avenue, Dowling, Washington, 3505"
     },
     {
-        "id": "6",
+        "id": 6,
         "photoUrl": "http://placehold.it/32x32",
         "age": 39,
         "name": "Brooks Beck",
@@ -76,7 +76,7 @@ module.exports.updateUser = async (req, res) => {
     const { id } = req.params
     const data = req.body
     const filter = { id: id }
-    const newData = users.find(user => user.id === id)
+    const newData = users.find(user => user.id === Number(id))
     // newData.push(data)
 
     // newData.id = id
@@ -89,7 +89,12 @@ module.exports.updateUser = async (req, res) => {
     res.send(newData)
 }
 
-
+module.exports.deleteUser = async (req, res) => {
+    const {id} = req.params;
+    console.log(id)
+    users = users.filter(user => user.id !== Number(id))
+    res.send(users)
+}
 
 
 

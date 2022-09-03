@@ -49,7 +49,7 @@ router.route('/')
     .post(userController.addUser)
 
     // router.route('/:id').get(viewCount, userController.userDetails)
-    router.route('/:id').patch(userController.updateUser)
+    router.route('/:id').patch(userController.updateUser).delete(userController.deleteUser)
 
 module.exports = router;
 
